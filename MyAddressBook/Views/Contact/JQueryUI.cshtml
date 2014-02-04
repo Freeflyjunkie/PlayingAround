@@ -1,0 +1,251 @@
+﻿@{
+    ViewBag.Title = "JQueryUI";
+}
+<script src="~/Scripts/jquery-ui-1.10.3.js"></script>
+<link href="~/Content/themes/base/mint-choc/jquery-ui-1.10.4.custom.css" rel="stylesheet" />
+<style>
+    .ui-draggable
+    {
+        background-color: #808080;
+        height: 100px;
+        width: 100px;
+        margin: 10px;
+        box-shadow: 5px 5px 5px gray;
+    }
+
+    .ui-draggable header
+    {
+        background-color: #ffffff
+    }
+
+    #target {
+        background-color: black;
+        height: 100px;
+        width: 100px;
+        border: 2px solid gray;        
+        border-radius: 25px;
+    }
+</style>
+<script>
+
+    $(DocumentIsReady);
+
+    function DocumentIsReady() {
+
+        //$('#target').click(function () {
+        //    $(this).animate({
+        //        width: "+=20",
+        //        height: "+=20",
+        //        "background-color": "red"
+        //    });
+        //});
+
+        $('#target')
+            .css("position", "relative")
+            .on(
+            {
+                dblclick: function () {
+                    $(this).animate({
+                        width: "150",
+                        height: "150",
+                        "background-color": "red",
+                        left: 1000
+                    }, 1000, "easeOutCubic");
+                },
+                click: function () {
+                    $(this).animate({
+                        width: "100",
+                        height: "100",
+                        "background-color": "black",
+                        left: 0
+                    }, 1000, "easeOutCubic");
+                }
+            });
+
+        $('#button1').button();
+
+        $('#accordion').accordion({
+            header: "h3",
+            heightStyle: "content",
+            activate: function (event, ui) {
+                console.log(event);
+                console.log(ui);
+            }
+        });
+        $('#accordion').accordion("option", "active", 0);
+
+
+        var classes = ["Javascript", "JQuery", "JQuery UI"];
+        $('#search').autocomplete({
+            source: "/JQueryUI/GetAddressBooks"
+        });
+
+        $('#tabs').tabs();
+
+        $('#progress').progressbar({ value: 100 });
+
+        $('#slider').slider({
+            min: 0,
+            max: 100,
+            value: 100,
+            slide: function (event, ui) {
+                $('#entering').css('opacity', ui.value / 100);
+            }
+        });
+
+        $('#dialog').dialog({
+            beforeClose: function (event, ui) {
+                //alert('closing dialog');
+                //return false; // cancel close
+            },
+            autoOpen: false,
+            width: 340,
+            modal: false,
+            buttons: {
+                "Yes": function () {
+                    $(this).dialog("close");
+                    $('#entering').show();
+                    countdown();
+                },
+                "No": function () {
+                    $(this).dialog("close");
+                }
+            }
+        });
+
+
+        $("#mybutt").button({
+            icons: { primary: "ui-icon-carat-1-n", secondary: "ui-icon-search" }            
+        });
+
+        $("#radio").buttonset();
+
+        //$('#draggables').children().draggable();
+
+        $('#d1').draggable({ axis: "x", containment: "#draggables" });
+        $('#d2').draggable({ axis: "x", containment: "#draggables", helper: function () { return $("<div>The Letter B</div>") } });
+        $('#d3').draggable({ axis: "x", containment: "#draggables", helper: "clone" });
+
+        $('#d1, #d2, #d3').draggable("option", "stack", ".ui-draggable");
+        $('#d1, #d2, #d3').draggable("option", "handle", "header");
+
+        $('#d3').resizable({ aspectRatio: true });
+
+        $("#dateselection").datepicker(
+            {
+                showAnim: "fold"
+            });
+
+        $('#entering').hide();
+
+        $("#enter").click(function () {
+            $("#dialog").dialog("open");
+        });
+
+        var value = 100
+        function countdown() {
+            value--;
+            $('#progress').progressbar("option", "value", value);
+
+            if (value > 0) {
+                setTimeout(countdown, 100);
+            }
+            else {
+                $('#progress').hide();
+                $('#zone').text("Your In!");
+            }
+        }
+    }
+</script>
+
+<h2>JQueryUI</h2>
+<div>
+    <div id="target">
+
+    </div>
+</div>
+<div id="draggables">
+    <div id="d1" style="float: left">
+        <header>A</header>
+    </div>
+    <div id="d2" style="float: left">
+        <header>B</header>
+    </div>
+    <div id="d3" style="float: left">
+        <header>C</header>
+    </div>
+</div>
+<hr style="clear: both"/>
+<input type="text" id="dateselection" />
+<hr />
+<div>
+    <label for="search">Search</label>
+    <input id="search" type="text" />
+</div>
+<hr />
+<input id="mybutt" type="button" value="My Button" />
+<div id="radio">
+    <input type="radio" id="language1" name="language" /><label for="language1">Javascript</label>
+    <input type="radio" id="language2" name="language" /><label for="language2">C#</label>
+    <input type="radio" id="language3" name="language" /><label for="language3">C++</label>
+</div>
+<hr />
+<div id="accordion">
+    <h3>Section 1</h3>
+    <div>
+        <p>
+            Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+            ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+            amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+            odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+            Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+            ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+            amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+            odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+        </p>
+    </div>
+    <h3>Section 2</h3>
+    <div>
+        <p>
+            Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
+        </p>
+    </div>
+    <h3>Section 3</h3>
+    <div>
+        <p>
+            Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
+            purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
+            velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
+            suscipit faucibus urna.
+            Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+            ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+            amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+            odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+        </p>
+    </div>
+</div>
+<hr />
+<div id="tabs">
+    <ul>
+        <li><a href="/Contact/GetStarInformation?imgControlID=imgRickMartin">Ricky Martin</a></li>
+        <li><a href="/Contact/GetStarInformation?imgControlID=imgHelenHunt">Helen Hunt</a></li>
+    </ul>
+</div>
+<hr />
+<input id="enter" type="button" value="Enter No Spin Zone" class="btn btn-default" />
+<hr />
+<div id="slider"></div>
+<div id="entering">
+    <br />
+    <div class="h3" id="zone">Entering...</div>
+    <div id="progress"></div>
+</div>
+<div id="dialog" title="Warning">
+    <div>
+        <img src="http://4.bp.blogspot.com/-x2XYE0nozmo/Tjg6VXjjIWI/AAAAAAAAAis/YFwINppYpi0/s1600/funny+warning+signs+emergency.jpg" style="height: 200px" />
+    </div>
+    <div>
+        You are about to enter the no spin zone.<br />Do you wish to continue?
+    </div>
+</div>
+

@@ -1,0 +1,188 @@
+﻿@model MyAddressBook.Models.Contact
+
+@{
+    ViewBag.Title = "Add Another Movie Star";
+}
+
+<script type="text/javascript">
+    $(DocumentIsReady)
+
+    function DocumentIsReady() {
+
+        $(document).ajaxSend(function () {
+            alert('starting ajax');
+        });
+
+        $('#AjaxPost').click(function () {
+
+            var contact = {
+                FirstName: $('#txtFirstName').val(),
+                LastName: $('#txtLastName').val(),
+                Address: $('#txtAddress').val(),
+                City: $('#txtCity').val(),
+                Postcode: $('#txtPostcode').val(),
+                Country: $('#txtCountry').val(),
+                PersonalImageUrl: $('#txtPersonalImageUrl').val()
+            };
+            
+            //var contact = $('#form1').serializeArray();
+            
+            //var contact = 'contact='
+            //    + JSON.stringify({
+            //                        FirstName: $('#txtFirstName').val(),
+            //                        LastName: $('#txtLastName').val(),
+            //                        Address: $('#txtAddress').val(),
+            //                        City: $('#txtCity').val(),
+            //                        Postcode: $('#txtPostcode').val(),
+            //                        Country: $('#txtCountry').val(),
+            //                        PersonalImageUrl: $('#txtPersonalImageUrl').val()
+            //                    });
+
+            //var contact = "contact: " + JSON.stringify({
+            //                                FirstName: "Jack",
+            //                                LastName: "Bower",
+            //                                Address: "123 Main Street",
+            //                                City: "Hollywood",
+            //                                Postcode: "12345",
+            //                                Country: "Unknown",
+            //                                PersonalImageUrl: "test"
+            //                            });
+
+            //alert(contact);            
+
+            $.ajax({
+                url: '/Contact/CreateUsingJQuery',
+                data: contact,
+                dataType: 'json',
+                success: function (data, status, xhr) {
+                    alert('Inserted: ' + data.Name + ' into your family book.');
+                },
+                error: function (xhr, status, error) {
+                    alert(status);
+                    alert(xhr.status);
+                    alert(xhr.responseJSON);
+                    alert(xhr.responseText);
+                    alert(error);
+                }
+            });
+
+            //$.post("/Contact/CreateUsingJQuery", contact, function (data, status, xhr) {
+            //    if (status == 'success') {
+            //        alert('Inserted: ' + data.Name + ' into your family book.');
+            //    }
+            //    else {
+            //        alert(status);
+                    //alert(xhr.status);
+                    //alert(xhr.responseJSON);
+                    //alert(xhr.responseText);
+                    //alert(error);
+            //    }
+            //}, 'json');
+
+            //$.getJSON("/Contact/CreateUsingJQuery", contact, function (data, status, xhr) {
+            //    if (status == 'success') {
+            //        alert('Inserted: ' + data.Name + ' into your family book.');
+            //    }
+            //    else {
+            //        alert(status);
+            //alert(xhr.status);
+            //alert(xhr.responseJSON);
+            //alert(xhr.responseText);
+            //alert(error);
+            //    }
+            //});
+        });
+    }
+</script>
+
+@using (Html.BeginForm("Create", "Contact", FormMethod.Post, new { id = "form1" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h3>Add Movie Star</h3>        
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.FirstName, new { id="txtFirstName" })
+                @*@Html.EditorFor(model => model.FirstName)*@
+                @Html.ValidationMessageFor(model => model.FirstName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LastName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.LastName, new { id = "txtLastName" })
+                @*@Html.EditorFor(model => model.LastName)*@
+                @Html.ValidationMessageFor(model => model.LastName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Address, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Address, new { id = "txtAddress" })
+                @*@Html.EditorFor(model => model.Address)*@
+                @Html.ValidationMessageFor(model => model.Address)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.City, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.City, new { id = "txtCity" })
+                @*@Html.EditorFor(model => model.City)*@
+                @Html.ValidationMessageFor(model => model.City)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Postcode, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Postcode, new { id = "txtPostcode" })
+                @*@Html.EditorFor(model => model.Postcode)*@
+                @Html.ValidationMessageFor(model => model.Postcode)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Country, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Country, new { id = "txtCountry" })
+                @*@Html.EditorFor(model => model.Country)*@
+                @Html.ValidationMessageFor(model => model.Country)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PersonalImageUrl, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.PersonalImageUrl, new { id = "txtPersonalImageUrl" })
+                @*@Html.EditorFor(model => model.PersonalImageUrl)*@
+                @Html.ValidationMessageFor(model => model.PersonalImageUrl)
+            </div>
+        </div>
+
+        <div style="float: left; padding-right: 20px">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+        <div style="float: left; padding-right: 20px">
+            <input type="button" value="Create Using Ajax" class="btn btn-default" id="AjaxPost" />
+        </div>
+        <div style="float: left; padding-right: 20px">
+            @Html.ActionLink("Back to List", "Index", "Contact", null, new { @class = "btn btn-default" })
+            @*<input type="button" value="Create Using Ajax" class="btn btn-default" id="AjaxPost" />*@
+        </div>
+        <div>
+            @Html.ActionLink("Get Random Movie Star", "Create", null, new { @class = "btn btn-default" })
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

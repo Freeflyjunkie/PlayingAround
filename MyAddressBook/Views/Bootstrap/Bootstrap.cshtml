@@ -1,0 +1,394 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WeichertOne</title>
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/css/bootstrap-yeti.css" rel="stylesheet" />
+    <style>
+        h1 {
+            padding: 20px 0px 0px 0px;
+            margin: 0px;
+        }
+
+        .h1White {
+            color: white;
+        }
+
+        h4 {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        body {
+            margin-top: 50px;
+            background-color: white;
+        }
+
+        .navbar-fixed-top {
+            padding-right: 50px;
+        }
+
+        .ShadowBoxing {
+            box-shadow: 10px 10px 5px #888888;
+        }
+    </style>
+</head>
+<body>
+    @*DIALOG ALERT TOOLTIP*@
+    <div class="modal fade" id="popupwindow" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a href="#" class="close" data-dismiss="modal">&times;</a>
+                    <h4>Thanks For Clicking</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        This is a warning...
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button id="closewindow" class="btn btn-success" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*TOP NAV BAR*@
+    <header class="container pull-left">
+        <div id="menu" class="navbar navbar-default navbar-fixed-top">
+            <div class="navbar-header">
+                <button class="btn btn-success btn-sm navbar-toggle"
+                        data-toggle="collapse"
+                        data-target=".navbar-collapse">
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav"><a href="/Contact/JQueryUI">JQuery UI</a></li>
+                    <li class="nav"><a href="/Contact/Index">Main Page</a></li>
+                </ul>
+            </div>
+        </div>
+        <h1 id="logo">
+            WeichertOne
+        </h1>
+        <h4 class="text-muted">
+            You make the Weichert Difference
+        </h4>
+        <hr />
+    </header>
+    <div class="container pull-left">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="http://t1.gstatic.com/images?q=tbn:ANd9GcTIv0AfEBTHlQjpOetQhTh3KYtrNMxDX3TIAdJ70MrKDjzIWdWJ2g"
+                     class="img-responsive img-rounded img-thumbnail ShadowBoxing" alt="">
+            </div>
+            <div class="col-md-4">
+                <img src="http://t1.gstatic.com/images?q=tbn:ANd9GcTIv0AfEBTHlQjpOetQhTh3KYtrNMxDX3TIAdJ70MrKDjzIWdWJ2g"
+                     class="img-responsive img-rounded img-thumbnail img-circle ShadowBoxing" alt="">
+            </div>
+        </div>
+        <hr />
+    </div>
+    @*CAROUSEL*@
+    <section class="container pull-left">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="carousel slide" data-interval="3000" id="myCarousel">
+
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>                        
+                    </ol>
+
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img src="/Images/sh1.jpg" class="img-responsive" alt="1" />
+                            <div class="carousel-caption">
+                                <h1 class="h1White">Nice House</h1>
+                                <p>I want to live here!</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="/Images/sh3.jpg" class="img-responsive" alt="2" />
+                            <div class="carousel-caption">
+                                <h1 class="h1White">Nicer House</h1>
+                                <p>I want to live here!</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="/Images/sh2.jpg" class="img-responsive" alt="3" />
+                            <div class="carousel-caption">
+                                <h1 class="h1White">Even Nicer House</h1>
+                                <p>I want to live here!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#myCarousel" class="carousel-control left" data-slide="prev"><span class="icon-prev"></span></a>
+                    <a href="#myCarousel" class="carousel-control right" data-slide="next"><span class="icon-next"></span></a>
+                </div>
+                <br />
+                @*ALERT*@
+                <div id="bootAlert" class="alert alert-info collapse">
+                    <a href="#" data-dismiss="alert" class="close">&times;</a>
+                    <p>
+                        Bootstrap Alert!
+                    </p>
+                </div>
+                <div class="pull-left" style="padding-right: 20px">
+                    <a id="btnwindowopen" href="#popupwindow" class="btn btn-info" data-toggle="modal">Open Window</a>
+                </div>
+                <div class="pull-left" style="padding-right: 20px">
+                    <input id="tooltipButton" type="button" value="Test Tooltip" class="btn btn-info" />
+                </div>
+                <div class="pull-left">
+                    <input id="alertButton" type="button" value="Test Alert" class="btn btn-info" />
+                </div>
+            </div>
+        </div>
+        <hr />
+    </section>
+    @*TAB*@   
+    <div class="container pull-left">
+        <div class="row">
+            <div class="col-md-5">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#housetab" data-toggle="tab">House Images</a></li>
+                    <li><a href="#cartab" data-toggle="tab">Car Images</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="housetab">
+                        <img src="http://xaxor.com/wp-content/uploads/2012/07/Houses-with-awesome-pools39.jpg" class="img-responsive" alt="" />
+                    </div>
+                    <div class="tab-pane" id="cartab">
+                        <img src="http://2.bp.blogspot.com/-V8OxsdYse4M/ThGB1iQElII/AAAAAAAABgQ/WBWE9UpNjSo/s1600/nice+old+muscle+cars+2.jpg" class="img-responsive" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr />
+    </div>    
+    @*COLLAPSE*@
+    <section class="container pull-left">
+        <article>
+            <ul class="nav nav-pills navbar-default">
+                <li><a href="#actors" data-toggle="collapse">Actors</a></li>
+                <li><a href="#moreactors" data-toggle="collapse">More Actors</a></li>
+            </ul>
+            <div id="actors" class="collapse in">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover table-condensed">
+                                <tr>
+                                    <th>Actor</th>
+                                    <th>Character</th>
+                                    <th>Actor</th>
+                                    <th>Character</th>
+                                </tr>
+                                <tr>
+                                    <td>Helen Hunt</td>
+                                    <td>Helen Hunt</td>
+                                    <td>Helen Hunt</td>
+                                    <td>Helen Hunt</td>
+                                </tr>
+                                <tr>
+                                    <td>Brad Pitt</td>
+                                    <td>Brad Pitt</td>
+                                    <td>Helen Hunt</td>
+                                    <td>Helen Hunt</td>
+                                </tr>
+                                <tr>
+                                    <td>Ricky</td>
+                                    <td>Martin</td>
+                                    <td>Helen Hunt</td>
+                                    <td>Helen Hunt</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="moreactors" class="collapse">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover table-condensed">
+                                <tr>
+                                    <th>Actor</th>
+                                    <th>Character</th>
+                                    <th>Actor</th>
+                                    <th>Character</th>
+                                </tr>
+                                <tr>
+                                    <td>Helen Hunt</td>
+                                    <td>Helen Hunt</td>
+                                    <td>Helen Hunt</td>
+                                    <td>Helen Hunt</td>
+                                </tr>
+                                <tr>
+                                    <td>Brad Pitt</td>
+                                    <td>Brad Pitt</td>
+                                    <td>Helen Hunt</td>
+                                    <td>Helen Hunt</td>
+                                </tr>
+                                <tr>
+                                    <td>Ricky</td>
+                                    <td>Martin</td>
+                                    <td>Helen Hunt</td>
+                                    <td>Helen Hunt</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <hr />
+    </section>    
+    @*ACCORDION*@
+    <section class="container pull-left">
+        <article class="row">
+            <div id="accordion" class="panel-group col-md-5">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <a href="#first" data-toggle="collapse" data-parent="#accordion">First</a>
+                        </div>
+                    </div>
+                    <div id="first" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <img src="http://ts4.mm.bing.net/th?id=H.4784569062721579&w=259&h=182&c=7&rs=1&pid=1.7">
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <a href="#second" data-toggle="collapse" data-parent="#accordion">Second</a>
+                        </div>
+                    </div>
+                    <div id="second" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <img src="http://ts3.mm.bing.net/th?id=H.4532424391461166&w=273&h=183&c=7&rs=1&pid=1.7">
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <a href="#third" data-toggle="collapse" data-parent="#accordion">Third</a>
+                        </div>
+                    </div>
+                    <div id="third" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <img src="http://ts3.mm.bing.net/th?id=H.4881596658024798&w=281&h=188&c=7&rs=1&pid=1.7">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <hr />
+    </section>    
+    @*LIST GROUP*@
+    <section class="container">
+        <article class="rows">
+            <div id="links" class="col-md-12">
+                <ul class="list-group">
+                    <li class="list-group-item active">
+                        <span class="badge"><span class="glyphicon glyphicon-arrow-left"></span></span>
+                        <a href="/Contact/Index">Profile</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/Contact/Index">Webmail</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/Contact/Index">Message Center</a>
+                    </li>
+                </ul>
+            </div>
+        </article>
+    </section>
+    <hr />
+    @*WORKING WITH GRIDS*@
+    <section class="container">
+        <section id="main" class="col-md-8 col-sm-9 col-xs-5">
+            <div>
+                <h1>
+                    People not so happy with Weichert
+                </h1>
+                <img class="pull-left img-thumbnail" src="http://ts3.mm.bing.net/th?id=H.4532424391461166&w=273&h=183&c=7&rs=1&pid=1.7" height="100" />
+                <p class="lead">
+                    <strong>So</strong>,
+                    <em> that just the tip of the iceberg with these people</em>. let me tell you something important should
+                </p>
+                <p>you decide to use this company (or, in truth, any other agent!) (There are MANY other agents out there... I would suggest you DO NOT USE WEICHERT).  Make sure EVERYTHING is in writing (learn from this!)  Don't believe them when they say they'll take professional pictures or that they'll treat it like it was their own house or any of the other things they say to make you like them.  Also MAKE SURE you make it so you can get out of the contract should you need to!  I had never sold anything with a Realtor before -- and I didn't know better.  I gave them a SIX MONTH agreement that ends right around the Holiday Season!!  I know... stupid on my part, but I trusted that Weichert was a "big name" and that they would do the right thing.  I was VERY wrong.  Make sure you sign for a shorter period of time and make sure you have a way out.  NOW!  PLEASE be clear on one thing.  I don't want you to have a "way out" if they do their job.  They deserve to get paid their commission if they do what they say they are going to do.  So PLEASE don't think you should be able to "get out" of a contract with them so you can avoid paying them!!  Had Ms. Daly and her office done what she promised I would have been HAPPY to give her the commission!  I would have recommended her to others and I would have used her in the future.  Instead, I'm here warning others to avoid her and Weichert at all costs!!!</p>
+            </div>
+        </section>
+        <section id="sidebar" class="col-md-4 col-sm-3 col-xs-5">
+            <h1>
+                Sidebar
+            </h1>
+            <ul class="list-group active">
+                <li class="list-group-item">
+                    <a href="/Contact/Index">Profile</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="/Contact/Index">Webmail</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="/Contact/Index">Message Center</a>
+                </li>
+            </ul>
+        </section>
+    </section>
+    </div>
+    <hr />
+    <script src="~/Scripts/jquery-2.0.3.js"></script>
+    <script src="~/Content/js/bootstrap.js"></script>
+    <script type="text/javascript">
+        $(DocumentIsReady);
+        function DocumentIsReady() {
+
+            //var tooltip = $('#tooltipButton');
+            //var tooltipHtml = "<img src='http://xaxor.com/wp-content/uploads/2012/07/Houses-with-awesome-pools39.jpg' alt='1' style='height: 50px'/>";
+            // tooltip.css('title', tooltipHtml).css('data-toggle', "tooltip").css('data-html', "true");
+            //tooltip.tooltip({
+            //    placement: "bottom",
+            //    delay: 500,
+            //    show: 0
+            //});
+
+            var popupwindow = $('#popupwindow');
+            popupwindow.on('hidden.bs.modal', function () {
+                $('#bootAlert').show();
+            });
+
+            var bootalert = $('#bootAlert');
+            bootalert.on('close.bs.alert', function () {
+                bootalert.hide();
+                return false;
+            });
+
+            var alertButton = $('#alertButton');
+            alertButton.on('click', function () {
+                bootalert.show();
+            });
+
+            var c = $('#myCarousel');
+            c.carousel();
+        }
+    </script>
+
+</body>
+
+
+
+</html>
