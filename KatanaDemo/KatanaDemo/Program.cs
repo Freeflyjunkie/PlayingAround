@@ -79,6 +79,7 @@ namespace KatanaDemo
             app.Use<HelloWorldComponent>();
         }
     }
+
     public class HelloWorldComponent
     {
         private AppFunc _next;
