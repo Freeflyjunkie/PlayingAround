@@ -296,11 +296,6 @@ namespace MyAddressBook.Controllers
                 .Select(c => new ContactAddressViewModel { Address = c.Address, City = c.City, Country = c.Country, Postcode = c.Postcode });
         }
 
-        public ActionResult JQueryUI()
-        {
-            return View("JQueryUI");
-        }
-
         protected override void Dispose(bool disposing)
         {
             if (disposing)

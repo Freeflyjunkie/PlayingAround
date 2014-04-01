@@ -222,8 +222,19 @@
     }
 
 </script>
-
-<div class="MiniText">
+<div style="float: left; padding-right: 20px">
+    <input id="GetRandomMovieStars" type="button" value="Add New Movie Star" class="btn btn-default" />
+</div>
+<div style="float: left; padding-right: 20px">
+    @Html.ActionLink("Play with JQueryUI", "Index", "JQueryUI", null, new { @class = "btn btn-default" })
+</div>
+<div style="float: left; padding-right: 20px">
+    @Html.ActionLink("Play with Bootstrap", "Bootstrap", "Bootstrap", null, new { @class = "btn btn-default" })
+</div>
+<div style="float: left">
+    @Html.ActionLink("Play with JQuery", "Index", "JQuery", null, new { @class = "btn btn-default" })
+</div> 
+<div class="MiniText" style="clear: both">
     <span id="hideHeader">hide guessing game</span>
 </div>
 <div id="MovieStarList">
@@ -278,16 +289,7 @@
                 e.Change("onChange");
             })
         )
-    </div>
-    <div style="float: left; padding-right: 20px">
-        <input id="GetRandomMovieStars" type="button" value="Add New Movie Star" class="btn btn-default" />
-    </div> 
-    <div style="float: left; padding-right: 20px">
-        @Html.ActionLink("Play with JQueryUI", "JQueryUI", "Contact", null, new { @class = "btn btn-default" })
-    </div> 
-    <div style="float: left">
-        @Html.ActionLink("Play with Bootstrap", "Bootstrap", "Bootstrap", null, new { @class = "btn btn-default" })
-    </div> 
+    </div>    
     <br/>
     <br />
     <div style="clear: both">

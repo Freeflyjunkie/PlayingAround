@@ -168,6 +168,7 @@
     <Compile Include="Controllers\BootstrapController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JQueryController.cs" />
     <Compile Include="Controllers\JQueryUIController.cs" />
     <Compile Include="DAL\AddressBookContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -491,6 +492,8 @@
     <Content Include="Images\sh1.jpg" />
     <Content Include="Images\sh2.jpg" />
     <Content Include="Images\sh3.jpg" />
+    <Content Include="Scripts\custom\jquery_index.js" />
+    <Content Include="Scripts\custom\remote.js" />
     <Content Include="Scripts\jquery-2.0.3.js" />
     <Content Include="Scripts\jquery-2.0.3.min.js" />
     <Content Include="Scripts\jquery-2.0.3.min.map" />
@@ -1364,10 +1367,10 @@
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Contact\JQueryUI.cshtml" />
     <Content Include="Views\Bootstrap\Bootstrap.cshtml" />
+    <Content Include="Views\JQueryUI\Index.cshtml" />
+    <Content Include="Views\JQuery\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\JQueryUI\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
