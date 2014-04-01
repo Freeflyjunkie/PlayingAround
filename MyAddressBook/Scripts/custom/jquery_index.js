@@ -1,6 +1,9 @@
 ﻿$(document).ready(function () {
     var myArray = [1, 2, 3, 3, 4, 4, 5];
     var myArray2 = [5, 6, 7, 8];
+
+    var myMergedArray = $.merge(myArray, myArray2);
+    console.log(myMergedArray);
     
     $.getScript("Scripts/custom/remote.js", function(data, textStatus) {
         console.log("remote script execution " + textStatus);
