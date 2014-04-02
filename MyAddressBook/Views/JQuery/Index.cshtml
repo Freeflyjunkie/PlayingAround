@@ -1,21 +1,29 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width" />
-        <title>Index</title>
-    </head>
-    <body>
-        <div>
-            <h1>JQuery</h1> 
-            <div id="output"></div>
-            <input type="button" id="remoteScriptError" value="Get Remote Error" />
-        </div>
-    </body>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <h1>JQuery</h1>
+        @*  GET SCRIPT*@
+        <div id="output"></div>
+        @*<input type="button" id="remoteScriptError" value="Get Remote Error" />*@
+    </div>
+    @*PUSH STACK*@
+    <div id="div1">1</div>
+    <div id="div2">2</div>
+    <div id="div3">3</div>
+    <div id="div4">4</div>
+    <div id="div5">5</div>
+    <div id="div6">6</div>
+    <div id="div7">7</div>
+</body>
 </html>
 @Scripts.Render("~/bundles/jquery") @*jquery js*@
 <script src="~/Scripts/custom/jquery_index.js"></script>
