@@ -492,7 +492,10 @@
     <Content Include="Images\sh1.jpg" />
     <Content Include="Images\sh2.jpg" />
     <Content Include="Images\sh3.jpg" />
+    <Content Include="Scripts\custom\jquery.myplugin.js" />
     <Content Include="Scripts\custom\jquery_index.js" />
+    <Content Include="Scripts\custom\jquery_index2.js" />
+    <Content Include="Scripts\custom\log.js" />
     <Content Include="Scripts\custom\remote.js" />
     <Content Include="Scripts\jquery-2.0.3.js" />
     <Content Include="Scripts\jquery-2.0.3.min.js" />
