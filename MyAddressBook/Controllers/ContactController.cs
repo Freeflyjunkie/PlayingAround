@@ -29,6 +29,7 @@ namespace MyAddressBook.Controllers
 
         public ActionResult Index()
         {
+            
             return View();
         }
 
